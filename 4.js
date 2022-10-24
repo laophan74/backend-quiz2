@@ -15,16 +15,3 @@ function find(input, timezone){
     }
 }
 find("2022-12-31","Asia/Ho_Chi_Minh")
-// function find(input, timezone) {
-//     const start = new Date(input.getFullYear(), input.getMonth(), 1);
-//     let end = new Date(input.getFullYear(), input.getMonth() + 1, 1);
-//     const timestamp = end.getTime() - 1;
-//     if (timezone) {
-//       return {
-//         start: new Date(start),
-//         end: new Date(timestamp),
-//       };
-//     }
-//   }
-
-// console.log(find(new Date(),"Asia/Ho_Chi_Minh"))
