@@ -14,4 +14,4 @@ function find(input, timezone){
         console.log(lastDate.format("Y-MM-DD HH:mm:ss.SSS Z"))
     }
 }
-find("2022-01-01","America/Los_Angeles")
+find("2022-01-01","America/Mazatlan")
