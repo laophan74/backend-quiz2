@@ -2,20 +2,20 @@ const moment = require("moment-timezone")
 
 function find(input, timezone){
     if(typeof input != "string"){
-        let Sunday = moment.tz(input.toISOString(), timezone).startOf("week")
-        let startOfWeek = moment.tz(Sunday.toISOString(), timezone).startOf("isoWeek")
-        let endOfWeek = Sunday.endOf("day")
+        let Sunday = moment.tz(input.toISOString(), timezone).startOf("isoWeek")-1
+        let endOfWeek = moment(Sunday).toISOString()
+        let startOfWeek = moment.tz(endOfWeek, timezone).startOf("isoWeek")
 
         console.log(startOfWeek.format("Y-MM-DD HH:mm:ss.SSS Z"))
-        console.log(endOfWeek.format("Y-MM-DD HH:mm:ss.SSS Z"))
+        console.log(moment(endOfWeek).format("Y-MM-DD HH:mm:ss.SSS Z"))
     }
     else{
-        let Sunday = moment.tz(input, timezone).startOf("week")
-        let startOfWeek = moment.tz(Sunday.toISOString(), timezone).startOf("isoWeek")
-        let endOfWeek = Sunday.endOf("day")
+        let Sunday = moment.tz(input, timezone).startOf("isoWeek")-1
+        let endOfWeek = moment(Sunday).toISOString()
+        let startOfWeek = moment.tz(endOfWeek, timezone).startOf("isoWeek")
 
         console.log(startOfWeek.format("Y-MM-DD HH:mm:ss.SSS Z"))
-        console.log(endOfWeek.format("Y-MM-DD HH:mm:ss.SSS Z"))
+        console.log(moment(endOfWeek).format("Y-MM-DD HH:mm:ss.SSS Z"))
     }
 }
-find(new Date("2001-12-02"),"Asia/Ho_Chi_Minh")
+find("2022-10-30","Asia/Ho_Chi_Minh")
